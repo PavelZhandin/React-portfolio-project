@@ -1,29 +1,36 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import LogoTitle from '../../assets/images/logo-s.png';
-import AnimatedLetters from '../AnimatedLetters';
-import './index.scss';
-
-const nameArray = ['l', 'o', 'b', 'o', 'd', 'a', 'n'];
-const jobArray = [
-  'w',
-  'e',
-  'b',
-  ' ',
-  'd',
-  'e',
-  'v',
-  'e',
-  'l',
-  'o',
-  'p',
-  'e',
-  'r',
-  '.',
-];
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import LogoTitle from '../../assets/images/logo-s.png'
+import AnimatedLetters from '../AnimatedLetters'
+import './index.scss'
+import Logo from './Logo'
 
 const Home = () => {
-  const [letterClass, setLetterClass] = useState('text-animate');
+  const [letterClass, setLetterClass] = useState('text-animate')
+
+  const nameArray = ['l', 'o', 'b', 'o', 'd', 'a', 'n']
+  const jobArray = [
+    'w',
+    'e',
+    'b',
+    ' ',
+    'd',
+    'e',
+    'v',
+    'e',
+    'l',
+    'o',
+    'p',
+    'e',
+    'r',
+    '.',
+  ]
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 4000)
+  }, [])
 
   return (
     <div className="container home-page">
@@ -50,13 +57,14 @@ const Home = () => {
             idx={22}
           />
         </h1>
-        <h2>Frontend Developer / JavaScript Expert </h2>
-        <Link to="/contacts" className="flat-button">
+        <h2>Front End Developer / JavaScript Expert / Youtuber</h2>
+        <Link to="/contact" className="flat-button">
           CONTACT ME
         </Link>
       </div>
+      <Logo />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
